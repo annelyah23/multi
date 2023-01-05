@@ -128,10 +128,10 @@ exit 0
 fi
 sleep 3
 
-mkdir -p /etc/alexxa
-mkdir -p /etc/alexxa/theme
-mkdir -p /var/lib/alexxa-pro >/dev/null 2>&1
-echo "IP=" >> /var/lib/alexxa-pro/ipvps.conf
+mkdir -p /etc/yudhynet
+mkdir -p /etc/yudhynet/theme
+mkdir -p /var/lib/yudhynet-pro >/dev/null 2>&1
+echo "IP=" >> /var/lib/yudhynet-pro/ipvps.conf
 
 if [ -f "/etc/xray/domain" ]; then
 echo ""
@@ -159,40 +159,40 @@ echo "$pp" > /root/domain
 echo "$pp" > /root/scdomain
 echo "$pp" > /etc/xray/domain
 echo "$pp" > /etc/xray/scdomain
-echo "IP=$pp" > /var/lib/alexxa-pro/ipvps.conf
+echo "IP=$pp" > /var/lib/yudhynet-pro/ipvps.conf
 
 #THEME RED
-cat <<EOF>> /etc/alexxa/theme/red
+cat <<EOF>> /etc/yudhynet/theme/red
 BG : \E[40;1;41m
 TEXT : \033[1;31m
 EOF
 #THEME BLUE
-cat <<EOF>> /etc/alexxa/theme/blue
+cat <<EOF>> /etc/yudhynet/theme/blue
 BG : \E[40;1;44m
 TEXT : \033[1;34m
 EOF
 #THEME GREEN
-cat <<EOF>> /etc/alexxa/theme/green
+cat <<EOF>> /etc/yudhynet/theme/green
 BG : \E[40;1;42m
 TEXT : \033[1;32m
 EOF
 #THEME YELLOW
-cat <<EOF>> /etc/alexxa/theme/yellow
+cat <<EOF>> /etc/yudhynet/theme/yellow
 BG : \E[40;1;43m
 TEXT : \033[1;33m
 EOF
 #THEME MAGENTA
-cat <<EOF>> /etc/alexxa/theme/magenta
+cat <<EOF>> /etc/yudhynet/theme/magenta
 BG : \E[40;1;43m
 TEXT : \033[1;33m
 EOF
 #THEME CYAN
-cat <<EOF>> /etc/alexxa/theme/cyan
+cat <<EOF>> /etc/yudhynet/theme/cyan
 BG : \E[40;1;46m
 TEXT : \033[1;36m
 EOF
 #THEME CONFIG
-cat <<EOF>> /etc/alexxa/theme/color.conf
+cat <<EOF>> /etc/yudhynet/theme/color.conf
 blue
 EOF
     
