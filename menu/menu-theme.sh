@@ -2,11 +2,11 @@
 dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
 biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
 ###########- COLOR CODE -##############
-colornow=$(cat /etc/alexxa/theme/color.conf)
+colornow=$(cat /etc/yudhynet/theme/color.conf)
 NC="\e[0m"
 RED="\033[0;31m" 
-COLOR1="$(cat /etc/alexxa/theme/$colornow | grep -w "TEXT" | cut -d: -f2|sed 's/ //g')"
-COLBG1="$(cat /etc/alexxa/theme/$colornow | grep -w "BG" | cut -d: -f2|sed 's/ //g')"   
+COLOR1="$(cat /etc/yudhynet/theme/$colornow | grep -w "TEXT" | cut -d: -f2|sed 's/ //g')"
+COLBG1="$(cat /etc/yudhynet/theme/$colornow | grep -w "BG" | cut -d: -f2|sed 's/ //g')"   
 WH='\033[1;37m'                 
 ###########- END COLOR CODE -##########
 
@@ -74,14 +74,14 @@ echo -e " $COLOR1 $NC"
 echo -e " $COLOR1 $NC  ${WH}[${COLOR1}00${WH}]$NC ${COLOR1}• ${WH}GO BACK$NC"
 echo -e " $COLOR1└───────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌────────────────────── ${WH}BY${NC} ${COLOR1}───────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC}                ${WH}• XRazer @ 2023 •${NC}                 $COLOR1 $NC"
+echo -e "$COLOR1 ${NC}                ${WH}• YUDHY NETWORK @ 2023 •${NC}                 $COLOR1 $NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e ""
 echo -ne " ${WH}Select menu ${COLOR1}: ${WH}"; read colormenu 
 case $colormenu in
 01 | 1)
 clear
-echo "blue" >/etc/alexxa/theme/color.conf
+echo "blue" >/etc/yudhynet/theme/color.conf
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 echo -e "$COLOR1 ${NC} ${COLBG1}                ${WH}• BLUE THEME •                 ${NC} $COLOR1 $NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
@@ -91,12 +91,12 @@ echo -e " $COLOR1 $NC ${WH}[${COLOR1}INFO${WH}] ${WH}TEAM BLUE Active Successful
 echo -e " $COLOR1 $NC"
 echo -e " $COLOR1└───────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌────────────────────── ${WH}BY${NC} ${COLOR1}───────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC}                ${WH}• XRazer @ 2023 •${NC}                 $COLOR1 $NC"
+echo -e "$COLOR1 ${NC}                ${WH}• YUDHY NETWORK @ 2023 •${NC}                 $COLOR1 $NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"                                                                                                                          
 ;;
 02 | 2)
 clear
-echo "red" >/etc/alexxa/theme/color.conf
+echo "red" >/etc/yudhynet/theme/color.conf
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 echo -e "$COLOR1 ${NC} ${COLBG1}                ${WH}• RED THEME •                  ${NC} $COLOR1 $NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
@@ -106,12 +106,12 @@ echo -e " $COLOR1 $NC ${WH}[${COLOR1}INFO${WH}] ${WH}TEAM RED Active Successfull
 echo -e " $COLOR1 $NC"
 echo -e " $COLOR1└───────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌────────────────────── ${WH}BY${NC} ${COLOR1}───────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC}                ${WH}• XRazer @ 2023 •${NC}                 $COLOR1 $NC"
+echo -e "$COLOR1 ${NC}                ${WH}• YUDHY NETWORK @ 2023 •${NC}                 $COLOR1 $NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 ;;
 03 | 3)
 clear
-echo "yellow" >/etc/alexxa/theme/color.conf
+echo "yellow" >/etc/yudhynet/theme/color.conf
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 echo -e "$COLOR1 ${NC} ${COLBG1}               ${WH}• YELLOW THEME •                ${NC} $COLOR1 $NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
@@ -121,12 +121,12 @@ echo -e " $COLOR1 $NC ${WH}[${COLOR1}INFO${WH}] ${WH}TEAM YELLOW Active Successf
 echo -e " $COLOR1 $NC"
 echo -e " $COLOR1└───────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌────────────────────── ${WH}BY${NC} ${COLOR1}───────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC}                ${WH}• XRazer @ 2023 •${NC}                 $COLOR1 $NC"
+echo -e "$COLOR1 ${NC}                ${WH}• YUDHY NETWORK @ 2023 •${NC}                 $COLOR1 $NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 ;;
 04 | 4)
 clear
-echo "cyan" >/etc/alexxa/theme/color.conf
+echo "cyan" >/etc/yudhynet/theme/color.conf
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 echo -e "$COLOR1 ${NC} ${COLBG1}                ${WH}• CYAN THEME •                 ${NC} $COLOR1 $NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
@@ -136,12 +136,12 @@ echo -e " $COLOR1 $NC ${WH}[${COLOR1}INFO${WH}] ${WH}TEAM CYAN Active Successful
 echo -e " $COLOR1 $NC"
 echo -e " $COLOR1└───────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌────────────────────── ${WH}BY${NC} ${COLOR1}───────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC}                ${WH}• XRazer @ 2023 •${NC}                 $COLOR1 $NC"
+echo -e "$COLOR1 ${NC}                ${WH}• YUDHY NETWORK @ 2023 •${NC}                 $COLOR1 $NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 ;;
 05 | 5)
 clear
-echo "green" >/etc/alexxa/theme/color.conf
+echo "green" >/etc/yudhynet/theme/color.conf
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 echo -e "$COLOR1 ${NC} ${COLBG1}               ${WH}• GREEN THEME •                 ${NC} $COLOR1 $NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
@@ -151,12 +151,12 @@ echo -e " $COLOR1 $NC ${WH}[${COLOR1}INFO${WH}] ${WH}TEAM GREEN Active Successfu
 echo -e " $COLOR1 $NC"
 echo -e " $COLOR1└───────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌────────────────────── ${WH}BY${NC} ${COLOR1}───────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC}                ${WH}• XRazer @ 2023 •${NC}                 $COLOR1 $NC"
+echo -e "$COLOR1 ${NC}                ${WH}• YUDHY NETWORK @ 2023 •${NC}                 $COLOR1 $NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 ;;
 06 | 6)
 clear
-echo "magenta" >/etc/alexxa/theme/color.conf
+echo "magenta" >/etc/yudhynet/theme/color.conf
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 echo -e "$COLOR1 ${NC} ${COLBG1}               ${WH}• MAGENTA THEME •               ${NC} $COLOR1 $NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
@@ -166,7 +166,7 @@ echo -e " $COLOR1 $NC ${WH}[${COLOR1}INFO${WH}] ${WH}TEAM MAGENTA Active Success
 echo -e " $COLOR1 $NC"
 echo -e " $COLOR1└───────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌────────────────────── ${WH}BY${NC} ${COLOR1}───────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC}                ${WH}• XRazer @ 2023 •${NC}                 $COLOR1 $NC"
+echo -e "$COLOR1 ${NC}                ${WH}• YUDHY NETWORK @ 2023 •${NC}                 $COLOR1 $NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 ;;
 00 | 0)

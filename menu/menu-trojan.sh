@@ -2,11 +2,11 @@
 dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
 biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
 ###########- COLOR CODE -##############
-colornow=$(cat /etc/alexxa/theme/color.conf)
+colornow=$(cat /etc/yudhynet/theme/color.conf)
 NC="\e[0m"
 RED="\033[0;31m" 
-COLOR1="$(cat /etc/alexxa/theme/$colornow | grep -w "TEXT" | cut -d: -f2|sed 's/ //g')"
-COLBG1="$(cat /etc/alexxa/theme/$colornow | grep -w "BG" | cut -d: -f2|sed 's/ //g')"    
+COLOR1="$(cat /etc/yudhynet/theme/$colornow | grep -w "TEXT" | cut -d: -f2|sed 's/ //g')"
+COLBG1="$(cat /etc/yudhynet/theme/$colornow | grep -w "BG" | cut -d: -f2|sed 's/ //g')"    
 WH='\033[1;37m'                
 ###########- END COLOR CODE -##########
 
@@ -115,7 +115,7 @@ done
 rm -rf /tmp/other.txt
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e "$COLOR1┌────────────────────── ${WH}BY${NC} ${COLOR1}───────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC}                ${WH}• XRazer @ 2023 •${NC}                 $COLOR1 $NC"
+echo -e "$COLOR1 ${NC}                ${WH}• YUDHY NETWORK @ 2023 •${NC}                 $COLOR1 $NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo ""
 read -n 1 -s -r -p "   Press any key to back on menu"
@@ -134,7 +134,7 @@ echo -e "$COLOR1┌────────────────────�
 echo -e "$COLOR1 ${NC}  • You Dont have any existing clients!"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e "$COLOR1┌────────────────────── ${WH}BY${NC} ${COLOR1}───────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC}                ${WH}• XRazer @ 2023 •${NC}                 $COLOR1 $NC"
+echo -e "$COLOR1 ${NC}                ${WH}• YUDHY NETWORK @ 2023 •${NC}                 $COLOR1 $NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo ""
 read -n 1 -s -r -p "   Press any key to back on menu"
@@ -168,7 +168,7 @@ echo -e "$COLOR1 ${NC}   • Client Name : $user"
 echo -e "$COLOR1 ${NC}   • Expired On  : $exp"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e "$COLOR1┌────────────────────── ${WH}BY${NC} ${COLOR1}───────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC}                ${WH}• XRazer @ 2023 •${NC}                 $COLOR1 $NC"
+echo -e "$COLOR1 ${NC}                ${WH}• YUDHY NETWORK @ 2023 •${NC}                 $COLOR1 $NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo ""
 read -n 1 -s -r -p "   Press any key to back on menu"
@@ -187,7 +187,7 @@ if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
 echo -e "$COLOR1 ${NC}  • You have no existing clients!"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e "$COLOR1┌────────────────────── ${WH}BY${NC} ${COLOR1}───────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC}                ${WH}• XRazer @ 2023 •${NC}                 $COLOR1 $NC"
+echo -e "$COLOR1 ${NC}                ${WH}• YUDHY NETWORK @ 2023 •${NC}                 $COLOR1 $NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo ""
 read -n 1 -s -r -p "   Press any key to back on menu"
@@ -203,7 +203,7 @@ echo -e "$COLOR1 ${NC}"
 echo -e "$COLOR1 ${NC}  ${COLOR1}• ${WH}[${COLOR1}NOTE${WH}] Press any key to back on menu"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e "$COLOR1┌────────────────────── ${WH}BY${NC} ${COLOR1}───────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC}                ${WH}• XRazer @ 2023 •${NC}                 $COLOR1 $NC"
+echo -e "$COLOR1 ${NC}                ${WH}• YUDHY NETWORK @ 2023 •${NC}                 $COLOR1 $NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1───────────────────────────────────────────────────${NC}"
 read -rp "   Input Username : " user
@@ -235,7 +235,7 @@ echo -e "$COLOR1 ${NC}   Days Added  : $masaaktif Days"
 echo -e "$COLOR1 ${NC}   Expired On  : $exp4"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e "$COLOR1┌────────────────────── ${WH}BY${NC} ${COLOR1}───────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC}                ${WH}• XRazer @ 2023 •${NC}                 $COLOR1 $NC"
+echo -e "$COLOR1 ${NC}                ${WH}• YUDHY NETWORK @ 2023 •${NC}                 $COLOR1 $NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo ""
 read -n 1 -s -r -p "   Press any key to back on menu"
@@ -244,7 +244,7 @@ fi
 }
 
 function addtrojan(){
-source /var/lib/alexxa-pro/ipvps.conf 
+source /var/lib/yudhynet-pro/ipvps.conf 
 domain=$(cat /etc/xray/domain)
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 echo -e "$COLOR1 ${NC} ${COLBG1}           ${WH}• CREATE TROJAN USER •              ${NC} $COLOR1 $NC"
@@ -257,7 +257,7 @@ if [ -z $user ]; then
 echo -e "$COLOR1 ${NC}   [Error] Username cannot be empty "
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e "$COLOR1┌────────────────────── ${WH}BY${NC} ${COLOR1}───────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC}                ${WH}• XRazer @ 2023 •${NC}                 $COLOR1 $NC"
+echo -e "$COLOR1 ${NC}                ${WH}• YUDHY NETWORK @ 2023 •${NC}                 $COLOR1 $NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo ""
 read -n 1 -s -r -p "   Press any key to back on menu"
@@ -273,13 +273,16 @@ echo -e "$COLOR1┌────────────────────�
 echo -e "$COLOR1 ${NC}  Please choose another name."
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e "$COLOR1┌────────────────────── ${WH}BY${NC} ${COLOR1}───────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC}                ${WH}• XRazer @ 2023 •${NC}                 $COLOR1 $NC"
+echo -e "$COLOR1 ${NC}                ${WH}• YUDHY NETWORK @ 2023 •${NC}                 $COLOR1 $NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 read -n 1 -s -r -p "   Press any key to back on menu"
 trojan-menu
 fi
 done
-uuid=$(cat /proc/sys/kernel/random/uuid)
+#uuid=$(cat /proc/sys/kernel/random/uuid)
+read -p " Silakan atur kata sandi  (dibuat secara acak jika Anda tidak Mengisi Pasword) :" uuid
+    [[ -z "$uuid" ]] && uuid=`cat /proc/sys/kernel/random/uuid`
+    
 read -p "   Expired (days): " masaaktif
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#trojanws$/a\#! '"$user $exp"'\
@@ -287,8 +290,11 @@ sed -i '/#trojanws$/a\#! '"$user $exp"'\
 sed -i '/#trojangrpc$/a\#! '"$user $exp"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
 systemctl restart xray
-trojanlink1="trojan://${uuid}@${domain}:${tr}?mode=gun&security=tls&type=grpc&serviceName=trojan-grpc&sni=bug.com#${user}"
-trojanlink="trojan://${uuid}@${domain}:${tr}?path=%2Ftrojan-ws&security=tls&host=bug.com&type=ws&sni=bug.com#${user}"
+
+trojanlink="trojan://${uuid}@$api.dmvpn.me:${tr}?path=%2Fyudhynet&security=tls&host=bug.com&type=ws&sni=${domain}#${user}"
+
+trojanlink1="trojan://${uuid}@${domain}:${tr}?mode=gun&security=tls&type=grpc&serviceName=trojan-grpc&sni=teams.live.com#${user}"
+
 clear
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 echo -e "$COLOR1 ${NC} ${COLBG1}           ${WH}• CREATE TROJAN USER •              ${NC} $COLOR1 $NC"
@@ -299,8 +305,8 @@ echo -e "$COLOR1 ${NC} ${WH}Expired On  ${COLOR1}: ${WH}$exp"
 echo -e "$COLOR1 ${NC} ${WH}Host/IP     ${COLOR1}: ${WH}${domain}" 
 echo -e "$COLOR1 ${NC} ${WH}Port        ${COLOR1}: ${WH}${tr}" 
 echo -e "$COLOR1 ${NC} ${WH}Key         ${COLOR1}: ${WH}${uuid}" 
-echo -e "$COLOR1 ${NC} ${WH}Path        ${COLOR1}: ${WH}/trojan-ws"
-echo -e "$COLOR1 ${NC} ${WH}Path WSS    ${COLOR1}: ${WH}wss://who.int/trojan-ws" 
+echo -e "$COLOR1 ${NC} ${WH}Path        ${COLOR1}: ${WH}/yudhynet ( multi path ) "
+echo -e "$COLOR1 ${NC} ${WH}Path WSS    ${COLOR1}: ${WH}wss://api.dmvpn.me/yudhynet" 
 echo -e "$COLOR1 ${NC} ${WH}ServiceName ${COLOR1}: ${WH}trojan-grpc" 
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
@@ -311,7 +317,7 @@ echo -e "$COLOR1 ${NC} ${WH}Link GRPC ${COLOR1}: ${NC}"
 echo -e "$COLOR1 ${NC} ${trojanlink1}"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e "$COLOR1┌────────────────────── ${WH}BY${NC} ${COLOR1}───────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC}                ${WH}• XRazer @ 2023 •${NC}                 $COLOR1 $NC"
+echo -e "$COLOR1 ${NC}                ${WH}• YUDHY NETWORK @ 2023 •${NC}                 $COLOR1 $NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo "" 
 read -n 1 -s -r -p "   Press any key to back on menu"
@@ -330,7 +336,7 @@ echo -e " $COLOR1 $NC                                              ${NC} $COLOR1
 echo -e " $COLOR1 $NC   ${WH}[${COLOR1}00${WH}]${NC} ${COLOR1}• ${WH}GO BACK${NC}                              $COLOR1 $NC"
 echo -e " $COLOR1└───────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌────────────────────── ${WH}BY${NC} ${COLOR1}───────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC}                ${WH}• XRazer @ 2023 •${NC}                 $COLOR1 $NC"
+echo -e "$COLOR1 ${NC}                ${WH}• YUDHY NETWORK @ 2023 •${NC}                 $COLOR1 $NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e ""
 echo -ne " ${WH}Select menu ${COLOR1}: ${WH}"; read opt

@@ -1,15 +1,15 @@
 #!/bin/bash
 MYIP=$(wget -qO- ipinfo.io/ip);
 
-colornow=$(cat /etc/alexxa/theme/color.conf)
+colornow=$(cat /etc/yudhynet/theme/color.conf)
 NC="\e[0m"
-COLOR1="$(cat /etc/alexxa/theme/$colornow | grep -w "TEXT" | cut -d: -f2|sed 's/ //g')"
-COLBG1="$(cat /etc/alexxa/theme/$colornow | grep -w "BG" | cut -d: -f2|sed 's/ //g')"
+COLOR1="$(cat /etc/yudhynet/theme/$colornow | grep -w "TEXT" | cut -d: -f2|sed 's/ //g')"
+COLBG1="$(cat /etc/yudhynet/theme/$colornow | grep -w "BG" | cut -d: -f2|sed 's/ //g')"
 WH='\033[1;37m'
 
-APIGIT=$(cat /etc/alexxa/github/api)
-EMAILGIT=$(cat /etc/alexxa/github/email)
-USERGIT=$(cat /etc/alexxa/github/username)
+APIGIT=$(cat /etc/yudhynet/github/api)
+EMAILGIT=$(cat /etc/yudhynet/github/email)
+USERGIT=$(cat /etc/yudhynet/github/username)
 
 export RED='\033[0;31m';
 export GREEN='\033[0;32m';
@@ -30,7 +30,7 @@ echo -e "$COLOR1 ${NC}"
 echo -e "$COLOR1 ${NC}  ${ERROR} DNS Cannot Be Empty";
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e "$COLOR1┌────────────────────── ${WH}BY${NC} ${COLOR1}───────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC}                ${WH}• XRazer @ 2023 •${NC}                 $COLOR1 $NC"
+echo -e "$COLOR1 ${NC}                ${WH}• YUDHY NETWORK @ 2023 •${NC}                 $COLOR1 $NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e ""
 read -n 1 -s -r -p "   Press any key to back on menu"
@@ -47,7 +47,7 @@ echo -e "$COLOR1 ${NC}  ${INFO} DNS Update Successfully";
 fi
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e "$COLOR1┌────────────────────── ${WH}BY${NC} ${COLOR1}───────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC}                ${WH}• XRazer @ 2023 •${NC}                 $COLOR1 $NC"
+echo -e "$COLOR1 ${NC}                ${WH}• YUDHY NETWORK @ 2023 •${NC}                 $COLOR1 $NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e ""
 read -n 1 -s -r -p "   Press any key to back on menu"
