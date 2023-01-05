@@ -1,7 +1,6 @@
 #!/bin/bash
-
+clear
 cd
-
 wget -O /usr/local/bin/ws-dropbear https://raw.githubusercontent.com/bakulssh/multi/main/websocket/dropbear-ws.py
 wget -O /usr/local/bin/ws-stunnel https://raw.githubusercontent.com/bakulssh/multi/main/websocket/ws-stunnel
 wget -O /usr/local/bin/ws-ovpn https://raw.githubusercontent.com/bakulssh/multi/main/openvpn/ws-ovpn.py
