@@ -4,7 +4,7 @@ GitUser="bakulssh"
 curl https://rclone.org/install.sh | bash
 printf "q\n" | rclone config
 wget -O /root/.config/rclone/rclone.conf "https://raw.githubusercontent.com/${GitUser}/multi/main/backup/rclone.conf"
-git clone  https://github.com/${GitUser}/wondershaper.git
+git clone https://github.com/magnific0/wondershaper.git
 cd wondershaper
 make install
 cd
