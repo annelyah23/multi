@@ -4,7 +4,7 @@ biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
 #########################
 
 BURIQ () {
-    curl -sS https://raw.githubusercontent.com/bakulssh/permission/main/access > /root/tmp
+    curl -sS https://raw.githubusercontent.com/arismaramar/permission/main/access > /root/tmp
     data=( `cat /root/tmp | grep -E "^### " | awk '{print $2}'` )
     for user in "${data[@]}"
     do
@@ -22,7 +22,7 @@ BURIQ () {
 }
 
 MYIP=$(curl -sS ipv4.icanhazip.com)
-Name=$(curl -sS https://raw.githubusercontent.com/bakulssh/permission/main/access | grep $MYIP | awk '{print $2}')
+Name=$(curl -sS https://raw.githubusercontent.com/arismaramar/permission/main/access | grep $MYIP | awk '{print $2}')
 echo $Name > /usr/local/etc/.$Name.ini
 CekOne=$(cat /usr/local/etc/.$Name.ini)
 
@@ -39,7 +39,7 @@ fi
 
 PERMISSION () {
     MYIP=$(curl -sS ipv4.icanhazip.com)
-    IZIN=$(curl -sS https://raw.githubusercontent.com/bakulssh/permission/main/access | awk '{print $4}' | grep $MYIP)
+    IZIN=$(curl -sS https://raw.githubusercontent.com/arismaramar/permission/main/access | awk '{print $4}' | grep $MYIP)
     if [ "$MYIP" = "$IZIN" ]; then
     Bloman
     else
@@ -148,7 +148,7 @@ fi
 fi
 
 echo ""
-wget -q https://raw.githubusercontent.com/bakulssh/multi/main/dependencies.sh;chmod +x dependencies.sh;./dependencies.sh
+wget -q https://raw.githubusercontent.com/arismaramar/multi/main/dependencies.sh;chmod +x dependencies.sh;./dependencies.sh
 rm dependencies.sh
 clear
 
@@ -159,40 +159,40 @@ echo "$pp" > /root/domain
 echo "$pp" > /root/scdomain
 echo "$pp" > /etc/xray/domain
 echo "$pp" > /etc/xray/scdomain
-echo "IP=$pp" > /var/lib/yudhynet-pro/ipvps.conf
+echo "IP=$pp" > /var/lib/anggun-pro/ipvps.conf
 
 #THEME RED
-cat <<EOF>> /etc/yudhynet/theme/red
+cat <<EOF>> /etc/anggun/theme/red
 BG : \E[40;1;41m
 TEXT : \033[1;31m
 EOF
 #THEME BLUE
-cat <<EOF>> /etc/yudhynet/theme/blue
+cat <<EOF>> /etc/anggun/theme/blue
 BG : \E[40;1;44m
 TEXT : \033[1;34m
 EOF
 #THEME GREEN
-cat <<EOF>> /etc/yudhynet/theme/green
+cat <<EOF>> /etc/anggun/theme/green
 BG : \E[40;1;42m
 TEXT : \033[1;32m
 EOF
 #THEME YELLOW
-cat <<EOF>> /etc/yudhynet/theme/yellow
+cat <<EOF>> /etc/anggun/theme/yellow
 BG : \E[40;1;43m
 TEXT : \033[1;33m
 EOF
 #THEME MAGENTA
-cat <<EOF>> /etc/yudhynet/theme/magenta
+cat <<EOF>> /etc/anggun/theme/magenta
 BG : \E[40;1;43m
 TEXT : \033[1;33m
 EOF
 #THEME CYAN
-cat <<EOF>> /etc/yudhynet/theme/cyan
+cat <<EOF>> /etc/anggun/theme/cyan
 BG : \E[40;1;46m
 TEXT : \033[1;36m
 EOF
 #THEME CONFIG
-cat <<EOF>> /etc/yudhynet/theme/color.conf
+cat <<EOF>> /etc/anggun/theme/color.conf
 blue
 EOF
     
@@ -202,42 +202,42 @@ echo -e "${tyblue}|     PROCESS INSTALLED SSH & OPENVPN      |${NC}"
 echo -e "${tyblue}'------------------------------------------'${NC}"
 sleep 2
 clear
-wget https://raw.githubusercontent.com/bakulssh/multi/main/ssh/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
+wget https://raw.githubusercontent.com/arismaramar/multi/main/ssh/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
 #Install Xray
 echo -e "${tyblue}.------------------------------------------.${NC}"
 echo -e "${tyblue}|          PROCESS INSTALLED XRAY          |${NC}"
 echo -e "${tyblue}'------------------------------------------'${NC}"
 sleep 2
 clear
-wget https://raw.githubusercontent.com/bakulssh/multi/main/xray/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
-wget https://raw.githubusercontent.com/bakulssh/multi/main/xtls/xtls.sh && chmod +x xtls.sh && ./xtls.sh
+wget https://raw.githubusercontent.com/arismaramar/multi/main/xray/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
+wget https://raw.githubusercontent.com/arismaramar/multi/main/xtls/xtls.sh && chmod +x xtls.sh && ./xtls.sh
 #Set Backup
 echo -e "${tyblue}.------------------------------------------.${NC}"
 echo -e "${tyblue}|                SET BACKUP                |${NC}"
 echo -e "${tyblue}'------------------------------------------'${NC}"
 sleep 2
 clear
-wget https://raw.githubusercontent.com/bakulssh/multi/main/backup/set-br.sh && chmod +x set-br.sh && ./set-br.sh
+wget https://raw.githubusercontent.com/arismaramar/multi/main/backup/set-br.sh && chmod +x set-br.sh && ./set-br.sh
 #Install SSH Websocket
 echo -e "${tyblue}.------------------------------------------.${NC}"
 echo -e "${tyblue}|      PROCESS INSTALLED WEBSOCKET SSH     |${NC}"
 echo -e "${tyblue}'------------------------------------------'${NC}"
 sleep 2
 clear
-wget https://raw.githubusercontent.com/bakulssh/multi/main/websocket/insshws.sh && chmod +x insshws.sh && ./insshws.sh
+wget https://raw.githubusercontent.com/arismaramar/multi/main/websocket/insshws.sh && chmod +x insshws.sh && ./insshws.sh
 #Install SSH Websocket
 echo -e "${tyblue}.------------------------------------------.${NC}"
 echo -e "${tyblue}|          PROCESS INSTALLED OHP           |${NC}"
 echo -e "${tyblue}'------------------------------------------'${NC}"
 sleep 2
 clear
-wget https://raw.githubusercontent.com/bakulssh/multi/main/openvpn/ohp.sh && chmod +x ohp.sh && ./ohp.sh
+wget https://raw.githubusercontent.com/arismaramar/multi/main/openvpn/ohp.sh && chmod +x ohp.sh && ./ohp.sh
 #Download Extra Menu
 echo -e "${tyblue}.------------------------------------------.${NC}"
 echo -e "${tyblue}|           DOWNLOAD EXTRA MENU            |${NC}"
 echo -e "${tyblue}'------------------------------------------'${NC}"
 sleep 2
-wget https://raw.githubusercontent.com/bakulssh/multi/main/menu/update.sh && chmod +x update.sh && ./update.sh
+wget https://raw.githubusercontent.com/arismaramar/multi/main/menu/update.sh && chmod +x update.sh && ./update.sh
 clear
 cat> /root/.profile << END
 # ~/.profile: executed by Bourne-compatible login shells.
@@ -264,7 +264,7 @@ if [ ! -f "/etc/log-create-user.log" ]; then
 echo "Log All Account " > /etc/log-create-user.log
 fi
 history -c
-serverV=$( curl -sS https://raw.githubusercontent.com/bakulssh/multi/main/version  )
+serverV=$( curl -sS https://raw.githubusercontent.com/arismaramar/multi/main/version  )
 echo $serverV > /opt/.ver
 aureb=$(cat /home/re_otm)
 b=11
@@ -279,7 +279,7 @@ curl -sS ifconfig.me > /etc/myipvps
 echo " "
 echo "Installation has been completed!!"
 echo " "
-echo "=========================[SCRIPT PREMIUM]========================"
+echo "=========================[SCRIPT multi]========================"
 echo ""  | tee -a log-install.txt
 echo "   >>> Service & Port"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
@@ -331,7 +331,7 @@ echo "   - Admin Control" | tee -a log-install.txt
 echo "   - Backup & Restore Data" | tee -a log-install.txt
 echo "   - Full Orders For Various Services" | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
-echo "=========================[SCRIPT PREMIUM]========================"
+echo "=========================[SCRIPT MULTI]========================"
 echo ""
 sleep 3
 echo -e "    ${tyblue}.------------------------------------------.${NC}"
