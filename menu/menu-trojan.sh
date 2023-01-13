@@ -244,7 +244,7 @@ fi
 }
 
 function addtrojan(){
-source /var/lib/yudhynet-pro/ipvps.conf 
+source /var/lib/anggun-pro/ipvps.conf 
 domain=$(cat /etc/xray/domain)
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 echo -e "$COLOR1 ${NC} ${COLBG1}           ${WH}• CREATE TROJAN USER •              ${NC} $COLOR1 $NC"
@@ -291,7 +291,7 @@ sed -i '/#trojangrpc$/a\#! '"$user $exp"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
 systemctl restart xray
 
-trojanlink="trojan://${uuid}@$api.dmvpn.me:${tr}?path=%2Fyudhynet&security=tls&host=bug.com&type=ws&sni=${domain}#${user}"
+trojanlink="trojan://${uuid}@$api.dmvpn.me:${tr}?path=%anggun-tr&security=tls&host=bug.com&type=ws&sni=${domain}#${user}"
 
 trojanlink1="trojan://${uuid}@${domain}:${tr}?mode=gun&security=tls&type=grpc&serviceName=trojan-grpc&sni=teams.live.com#${user}"
 
@@ -305,8 +305,8 @@ echo -e "$COLOR1 ${NC} ${WH}Expired On  ${COLOR1}: ${WH}$exp"
 echo -e "$COLOR1 ${NC} ${WH}Host/IP     ${COLOR1}: ${WH}${domain}" 
 echo -e "$COLOR1 ${NC} ${WH}Port        ${COLOR1}: ${WH}${tr}" 
 echo -e "$COLOR1 ${NC} ${WH}Key         ${COLOR1}: ${WH}${uuid}" 
-echo -e "$COLOR1 ${NC} ${WH}Path        ${COLOR1}: ${WH}/anggun ( multi path ) "
-echo -e "$COLOR1 ${NC} ${WH}Path WSS    ${COLOR1}: ${WH}wss://api.remoot.shop/anggun" 
+echo -e "$COLOR1 ${NC} ${WH}Path        ${COLOR1}: ${WH}/anggun-tr" ( multi path ) "
+echo -e "$COLOR1 ${NC} ${WH}Path WSS    ${COLOR1}: ${WH}/anggun-ws" 
 echo -e "$COLOR1 ${NC} ${WH}ServiceName ${COLOR1}: ${WH}trojan-grpc" 
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
