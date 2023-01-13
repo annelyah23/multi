@@ -241,7 +241,7 @@ menu-vmess
 
 function addvmess(){
 clear
-source /var/lib/yudhynet-pro/ipvps.conf
+source /var/lib/anggun-pro/ipvps.conf
 domain=$(cat /etc/xray/domain)
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 echo -e "$COLOR1 ${NC} ${COLBG1}            ${WH}• CREATE VMESS USER •              ${NC} $COLOR1 $NC"
@@ -301,7 +301,7 @@ satu=`cat<<EOF
       "id": "${uuid}",
       "aid": "0",
       "net": "ws",
-      "path": "/anggun",
+      "path": "/anggun-vmess",
       "type": "none",
       "host": "${domain}",
       "tls": "tls", 
@@ -410,7 +410,7 @@ echo -e "$COLOR1 ${NC} ${WH}id            ${COLOR1}: ${WH}${uuid}"  | tee -a /et
 echo -e "$COLOR1 ${NC} ${WH}alterId       ${COLOR1}: ${WH}0"  | tee -a /etc/log-create-user.log
 echo -e "$COLOR1 ${NC} ${WH}Security      ${COLOR1}: ${WH}auto"  | tee -a /etc/log-create-user.log
 echo -e "$COLOR1 ${NC} ${WH}Network       ${COLOR1}: ${WH}ws"  | tee -a /etc/log-create-user.log
-echo -e "$COLOR1 ${NC} ${WH}Path          ${COLOR1}: ${WH}/anggun ( multi path )" | tee -a /etc/log-create-user.log
+echo -e "$COLOR1 ${NC} ${WH}Path          ${COLOR1}: ${WH}/anggun-vmess ( multi path )" | tee -a /etc/log-create-user.log
 echo -e "$COLOR1 ${NC} ${WH}ServiceName   ${COLOR1}: ${WH}vmess-grpc"  | tee -a /etc/log-create-user.log
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"  | tee -a /etc/log-create-user.log
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}" | tee -a /etc/log-create-user.log
@@ -434,7 +434,7 @@ echo -e "$COLOR1 ${NC} ${WH}${vmesslink6}${NC}"  | tee -a /etc/log-create-user.l
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"  | tee -a /etc/log-create-user.log
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"  | tee -a /etc/log-create-user.log
 echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}" | tee -a /etc/log-create-user.log
-echo -e "$COLOR1 ${NC}                ${WH}• YUDHY NETWORK @ 2023 •${NC}                 $COLOR1 $NC" | tee -a /etc/log-create-user.log
+echo -e "$COLOR1 ${NC}                ${WH}• ANGGUN  @ 2023 •${NC}                 $COLOR1 $NC" | tee -a /etc/log-create-user.log
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" | tee -a /etc/log-create-user.log
 echo "" | tee -a /etc/log-create-user.log
 
