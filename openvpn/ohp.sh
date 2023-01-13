@@ -21,7 +21,7 @@ Port_OHP='8787';
 
 #Installing ohp Server
 cd 
-wget -O /usr/local/bin/ohp "https://raw.githubusercontent.com/bakulssh/multi/main/openvpn/ohp"
+wget -O /usr/local/bin/ohp "https://raw.githubusercontent.com/arismaramar/multi/main/openvpn/ohp"
 chmod +x /usr/local/bin/ohp
 
 #Buat File OpenVPN TCP OHP
@@ -67,7 +67,7 @@ cd
 cat > /etc/systemd/system/ohp.service <<END
 [Unit]
 Description=Direct Squid Proxy For OpenVPN TCP
-Documentation=https://t.me/yudhydm
+Documentation=https://t.me/amantubilah
 Wants=network.target
 After=network.target
 
@@ -87,4 +87,4 @@ echo ""
 echo -e "${GREEN}Done Installing OHP Server${NC}"
 echo -e "Port OVPN OHP TCP: $Port_OHP"
 echo -e "Link Download OVPN OHP: http://$MYIP:81/client-tcp-ohp1194.ovpn"
-echo -e "Script By Yudhy Network"
+echo -e "Script By anggun"
