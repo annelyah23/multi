@@ -210,7 +210,7 @@ echo -e "${tyblue}'------------------------------------------'${NC}"
 sleep 2
 clear
 wget -O ins-xray.sh https://raw.githubusercontent.com/arismaramar/multi/main/xray/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
-wget -O xtls.shhttps://raw.githubusercontent.com/arismaramar/multi/main/xtls/xtls.sh && chmod +x xtls.sh && ./xtls.sh
+wget -O xtls.sh https://raw.githubusercontent.com/arismaramar/multi/main/xtls/xtls.sh && chmod +x xtls.sh && ./xtls.sh
 #Set Backup
 echo -e "${tyblue}.------------------------------------------.${NC}"
 echo -e "${tyblue}|                SET BACKUP                |${NC}"
@@ -237,7 +237,7 @@ echo -e "${tyblue}.------------------------------------------.${NC}"
 echo -e "${tyblue}|           DOWNLOAD EXTRA MENU            |${NC}"
 echo -e "${tyblue}'------------------------------------------'${NC}"
 sleep 2
-wget -O update.shhttps://raw.githubusercontent.com/arismaramar/multi/main/menu/update.sh && chmod +x update.sh && ./update.sh
+wget -O update.sh https://raw.githubusercontent.com/arismaramar/multi/main/menu/update.sh && chmod +x update.sh && ./update.sh
 clear
 cat> /root/.profile << END
 # ~/.profile: executed by Bourne-compatible login shells.
