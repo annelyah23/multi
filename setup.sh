@@ -128,10 +128,10 @@ exit 0
 fi
 sleep 3
 
-mkdir -p /etc/yudhynet
-mkdir -p /etc/yudhynet/theme
-mkdir -p /var/lib/yudhynet-pro >/dev/null 2>&1
-echo "IP=" >> /var/lib/yudhynet-pro/ipvps.conf
+mkdir -p /etc/anggun
+mkdir -p /etc/anggun/theme
+mkdir -p /var/lib/anggun-pro >/dev/null 2>&1
+echo "IP=" >> /var/lib/anggun-pro/ipvps.conf
 
 if [ -f "/etc/xray/domain" ]; then
 echo ""
