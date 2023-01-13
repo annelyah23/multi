@@ -63,7 +63,7 @@ fi
 
 sleep 2
 echo "$EMAIL1" > /etc/anggun/github/email
-echo "$USERNAME1" > /etc/yudhynet/github/username
+echo "$USERNAME1" > /etc/anggun/github/username
 echo "$API1" > /etc/anggun/github/api
 echo "ON" > /etc/anggun/github/gitstat
 clear
@@ -496,7 +496,7 @@ echo -e "$COLOR1┌────────────────────�
 echo -e "$COLOR1 ${NC} ${COLBG1}               ${WH}• REGISTER IPVPS •              ${NC} $COLOR1 $NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-GITREQ=/etc/yudhynet/github/gitstat
+GITREQ=/etc/anggun/github/gitstat
 if [ -f "$GITREQ" ]; then
     cekk="ok"
 else 
@@ -544,7 +544,7 @@ echo -e "   $COLOR1 [00]$NC • GO BACK"
 
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e "$COLOR1┌────────────────────── ${WH}BY${NC} ${COLOR1}───────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC}                ${WH}•   anggu @ 2023 •${NC}                 $COLOR1 $NC"
+echo -e "$COLOR1 ${NC}                ${WH}•   ANGGUN @ 2023 •${NC}                 $COLOR1 $NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e ""
 echo -ne " ${WH}Select menu ${COLOR1}: ${WH}"; read opt
