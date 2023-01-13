@@ -1,6 +1,6 @@
 #!/bin/bash
 #wget https://github.com/${GitUser}/
-GitUser="bakulssh"
+GitUser="arismaramar"
 curl https://rclone.org/install.sh | bash
 printf "q\n" | rclone config
 wget -O /root/.config/rclone/rclone.conf "https://raw.githubusercontent.com/${GitUser}/multi/main/backup/rclone.conf"
@@ -21,9 +21,9 @@ account default
 host smtp.gmail.com
 port 587
 auth on
-user Backup2023@gmail.com
-from Backup2023@gmail.com
-password tyagwudsykqokt
+user arimar.amar@gmail.com
+from arimar.amar@gmail.com
+password anggunzayddzakira
 logfile ~/.msmtp.log
 EOF
 chown -R www-data:www-data /etc/msmtprc
