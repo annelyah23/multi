@@ -202,15 +202,15 @@ echo -e "${tyblue}|     PROCESS INSTALLED SSH & OPENVPN      |${NC}"
 echo -e "${tyblue}'------------------------------------------'${NC}"
 sleep 2
 clear
-wget https://raw.githubusercontent.com/arismaramar/multi/main/ssh/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
+wget -O ssh-vpn.sh https://raw.githubusercontent.com/arismaramar/multi/main/ssh/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
 #Install Xray
 echo -e "${tyblue}.------------------------------------------.${NC}"
 echo -e "${tyblue}|          PROCESS INSTALLED XRAY          |${NC}"
 echo -e "${tyblue}'------------------------------------------'${NC}"
 sleep 2
 clear
-wget https://raw.githubusercontent.com/arismaramar/multi/main/xray/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
-wget https://raw.githubusercontent.com/arismaramar/multi/main/xtls/xtls.sh && chmod +x xtls.sh && ./xtls.sh
+wget -O ins-xray.sh https://raw.githubusercontent.com/arismaramar/multi/main/xray/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
+wget -O xtls.shhttps://raw.githubusercontent.com/arismaramar/multi/main/xtls/xtls.sh && chmod +x xtls.sh && ./xtls.sh
 #Set Backup
 echo -e "${tyblue}.------------------------------------------.${NC}"
 echo -e "${tyblue}|                SET BACKUP                |${NC}"
@@ -224,20 +224,20 @@ echo -e "${tyblue}|      PROCESS INSTALLED WEBSOCKET SSH     |${NC}"
 echo -e "${tyblue}'------------------------------------------'${NC}"
 sleep 2
 clear
-wget https://raw.githubusercontent.com/arismaramar/multi/main/websocket/insshws.sh && chmod +x insshws.sh && ./insshws.sh
+wget -O insshws.sh https://raw.githubusercontent.com/arismaramar/multi/main/websocket/insshws.sh && chmod +x insshws.sh && ./insshws.sh
 #Install SSH Websocket
 echo -e "${tyblue}.------------------------------------------.${NC}"
 echo -e "${tyblue}|          PROCESS INSTALLED OHP           |${NC}"
 echo -e "${tyblue}'------------------------------------------'${NC}"
 sleep 2
 clear
-wget https://raw.githubusercontent.com/arismaramar/multi/main/openvpn/ohp.sh && chmod +x ohp.sh && ./ohp.sh
+wget -O ohp.sh https://raw.githubusercontent.com/arismaramar/multi/main/openvpn/ohp.sh && chmod +x ohp.sh && ./ohp.sh
 #Download Extra Menu
 echo -e "${tyblue}.------------------------------------------.${NC}"
 echo -e "${tyblue}|           DOWNLOAD EXTRA MENU            |${NC}"
 echo -e "${tyblue}'------------------------------------------'${NC}"
 sleep 2
-wget https://raw.githubusercontent.com/arismaramar/multi/main/menu/update.sh && chmod +x update.sh && ./update.sh
+wget -O update.shhttps://raw.githubusercontent.com/arismaramar/multi/main/menu/update.sh && chmod +x update.sh && ./update.sh
 clear
 cat> /root/.profile << END
 # ~/.profile: executed by Bourne-compatible login shells.
