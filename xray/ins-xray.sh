@@ -424,7 +424,7 @@ WantedBy=multi-user.target
 EOF
 cat > /etc/systemd/system/runn.service <<EOF
 [Unit]
-Description=ANGGUN-MULTI
+Description=Yudhy-Network
 After=network.target
 
 [Service]
