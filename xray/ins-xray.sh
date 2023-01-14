@@ -424,7 +424,7 @@ WantedBy=multi-user.target
 EOF
 cat > /etc/systemd/system/runn.service <<EOF
 [Unit]
-Description=Yudhy-Network
+Description=ANGGUN-MULTI
 After=network.target
 
 [Service]
@@ -489,7 +489,7 @@ sed -i '$ i     }' /etc/nginx/conf.d/xray.conf
 sed -i '$ i' /etc/nginx/conf.d/xray.conf
 sed -i '$ i# Important:' /etc/nginx/conf.d/xray.conf
 sed -i '$ i# This is the proxy Xray For Trojan Servers' /etc/nginx/conf.d/xray.conf
-sed -i '$ ilocation /yudhynet {' /etc/nginx/conf.d/xray.conf
+sed -i '$ ilocation /anggun {' /etc/nginx/conf.d/xray.conf
 sed -i '$ iif ($http_upgrade != "Upgrade") {' /etc/nginx/conf.d/xray.conf
 sed -i '$ irewrite /(.*) /anggun break;' /etc/nginx/conf.d/xray.conf
 sed -i '$ i     }' /etc/nginx/conf.d/xray.conf
