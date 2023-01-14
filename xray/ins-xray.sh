@@ -457,7 +457,7 @@ sed -i '$ i# Important:' /etc/nginx/conf.d/xray.conf
 sed -i '$ i# This is the proxy Xray For Vless Servers' /etc/nginx/conf.d/xray.conf
 sed -i '$ i    location /vlessws {' /etc/nginx/conf.d/xray.conf
 sed -i '$ iif ($http_upgrade != "Upgrade") {' /etc/nginx/conf.d/xray.conf
-sed -i '$ irewrite /(.*) /vlessws break;' /etc/nginx/conf.d/xray.conf
+sed -i '$ irewrite /(.*) /anggun-vless break;' /etc/nginx/conf.d/xray.conf
 sed -i '$ i      }' /etc/nginx/conf.d/xray.conf
 sed -i '$ iproxy_redirect off;' /etc/nginx/conf.d/xray.conf
 sed -i '$ iproxy_pass http://127.0.0.1:10001;' /etc/nginx/conf.d/xray.conf
@@ -474,7 +474,7 @@ sed -i '$ i# Important:' /etc/nginx/conf.d/xray.conf
 sed -i '$ i# This is the proxy Xray For Vmess Servers' /etc/nginx/conf.d/xray.conf
 sed -i '$ i      location / {' /etc/nginx/conf.d/xray.conf
 sed -i '$ i                   if ($http_upgrade != "Upgrade") {' /etc/nginx/conf.d/xray.conf
-sed -i '$ i                   rewrite /(.*) /worryfree break;' /etc/nginx/conf.d/xray.conf
+sed -i '$ i                   rewrite /(.*) /anggun-vmess break;' /etc/nginx/conf.d/xray.conf
 sed -i '$ i     }' /etc/nginx/conf.d/xray.conf
 sed -i '$ i                   proxy_redirect off;' /etc/nginx/conf.d/xray.conf
 sed -i '$ i                   proxy_pass http://127.0.0.1:10002;' /etc/nginx/conf.d/xray.conf
@@ -489,9 +489,9 @@ sed -i '$ i     }' /etc/nginx/conf.d/xray.conf
 sed -i '$ i' /etc/nginx/conf.d/xray.conf
 sed -i '$ i# Important:' /etc/nginx/conf.d/xray.conf
 sed -i '$ i# This is the proxy Xray For Trojan Servers' /etc/nginx/conf.d/xray.conf
-sed -i '$ ilocation /yudhynet {' /etc/nginx/conf.d/xray.conf
+sed -i '$ ilocation /anggun {' /etc/nginx/conf.d/xray.conf
 sed -i '$ iif ($http_upgrade != "Upgrade") {' /etc/nginx/conf.d/xray.conf
-sed -i '$ irewrite /(.*) /yudhynet break;' /etc/nginx/conf.d/xray.conf
+sed -i '$ irewrite /(.*) /anggun-tr break;' /etc/nginx/conf.d/xray.conf
 sed -i '$ i     }' /etc/nginx/conf.d/xray.conf
 sed -i '$ iproxy_redirect off;' /etc/nginx/conf.d/xray.conf
 sed -i '$ iproxy_pass http://127.0.0.1:10003;' /etc/nginx/conf.d/xray.conf
@@ -508,7 +508,7 @@ sed -i '$ i                   # Important:' /etc/nginx/conf.d/xray.conf
 sed -i '$ i                   # This is the proxy Xray For SS Servers' /etc/nginx/conf.d/xray.conf
 sed -i '$ i                   location /ss-ws {' /etc/nginx/conf.d/xray.conf
 sed -i '$ i                   if ($http_upgrade != "Upgrade") {' /etc/nginx/conf.d/xray.conf
-sed -i '$ i                   rewrite /(.*) /ss-ws break;' /etc/nginx/conf.d/xray.conf
+sed -i '$ i                   rewrite /(.*) /anggun-ss break;' /etc/nginx/conf.d/xray.conf
 sed -i '$ i     }' /etc/nginx/conf.d/xray.conf
 sed -i '$ i                   proxy_redirect off;' /etc/nginx/conf.d/xray.conf
 sed -i '$ i                   proxy_pass http://127.0.0.1:10004;' /etc/nginx/conf.d/xray.conf
