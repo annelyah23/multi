@@ -19,7 +19,7 @@ cp /etc/group backup/
 cp /etc/shadow backup/
 cp /etc/gshadow backup/
 
-cp -r /var/lib/premium-script/ backup/premium-script
+cp -r /var/lib/anggun-pro/ backup/anggun-script
 cp -r /usr/local/etc/xray backup/xray
 cp -r /home/vps/public_html backup/public_html
 cd /root
