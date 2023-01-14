@@ -301,6 +301,10 @@ echo "   - Nginx                     : 81"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "    [INFORMASI XRAY & EXTRA PROTOKOL]"  | tee -a log-install.txt
 echo "    ---------------------------" | tee -a log-install.txt
+echo "    [INFORMASI Shadowsocks-R & Shadowsocks]"  | tee -a log-install.txt
+echo "    ---------------------------------------" | tee -a log-install.txt
+echo "   - Websocket Shadowsocks     : 443"  | tee -a log-install.txt
+echo "   - Shadowsocks GRPC          : 443"  | tee -a log-install.txt
 echo "   - Vmess TCP XTLS            : (Coming Soon)"  | tee -a log-install.txt
 echo "   - VLess TCP XTLS            : 443"  | tee -a log-install.txt
 echo "   - Trojan TCP XTLS           : (Coming Soon)"  | tee -a log-install.txt
