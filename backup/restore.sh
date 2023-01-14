@@ -20,7 +20,7 @@ cp passwd /etc/
 cp group /etc/
 cp shadow /etc/
 cp gshadow /etc/
-cp -r premium-script /var/lib/
+cp -r anggun-pro /var/lib/
 cp -r xray /usr/local/etc/
 cp -r public_html /home/vps/
 cp crontab /etc/
