@@ -86,8 +86,8 @@ echo -e "$COLOR1└────────────────────�
 echo -e ""
 echo -ne " ${WH}Select menu ${COLOR1}: ${WH}"; read opt
 case $opt in
-01 | 1) clear ; backup ;;
-02 | 2) clear ; restore ;;
+01 | 1) clear ; backupp ;;
+02 | 2) clear ; restoree ;;
 03 | 3) clear ; menu3 ;;
 04 | 4) clear ; menu4 ;;
 05 | 5) clear ; limit-speed ;;
