@@ -95,7 +95,7 @@ green "│  [INFO] Data found for username $NameUser"
 echo -e "$COLOR1│${NC}  [ ${green}INFO${NC} ] • Restore Data..."
 read -rp "│  Password File: " -e InputPass
 echo -e "$COLOR1│${NC}  [ ${green}INFO${NC} ] • Downloading data.."
-wget -q -O /root/backup/backup.zip "https://raw.githubusercontent.com/arismaramar/backupuseranggun/main/$NameUser/$NameUser.zip" &> /dev/null
+wget -q -O /root/backup/backup.zip "https://raw.githubusercontent.com/arismaramar/backupvps/main/$NameUser/$NameUser.zip" &> /dev/null
 echo -e "$COLOR1│${NC}  [ ${green}INFO${NC} ] • Getting your data..."
 unzip -P $InputPass /root/backup/backup.zip &> /dev/null
 echo -e "$COLOR1│${NC}  [ ${green}INFO${NC} ] • Starting to restore data..."
