@@ -110,7 +110,7 @@ zip -rP $InputPass $NameUser.zip backup > /dev/null 2>&1
 ##############++++++++++++++++++++++++#############
 LLatest=`date`
 Get_Data () {
-git clone https://github.com/arismaramar/backupuseranggun.git /root/user-backup/ &> /dev/null
+git clone https://github.com/arismaramar/backupvps.git /root/user-backup/ &> /dev/null
 }
 
 Mkdir_Data () {
@@ -137,8 +137,8 @@ Save_And_Exit () {
     git add . &> /dev/null
     git commit -m backup &> /dev/null
     git branch -M main &> /dev/null
-    git remote add origin https://github.com/arismaramar/backupuseranggun
-    git push -f https://SHA256:oOXgMG/zce6oWBv8wkD030jKd8YfyZ+4FlEHeGT0P6E@github.com/arismaramar/backupuseranggun.git &> /dev/null
+    git remote add origin https://github.com/arismaramar/backupvps
+    git push -f https://SHA256:oOXgMG/zce6oWBv8wkD030jKd8YfyZ+4FlEHeGT0P6E@github.com/arismaramar/backupvps.git &> /dev/null
 }
 
 if [ ! -d "/root/user-backup/" ]; then
@@ -153,7 +153,7 @@ sleep 1
 echo -e "$COLOR1│${NC}  [INFO] Processing updating server...... "
 Save_And_Exit
 fi
-link="https://raw.githubusercontent.com/arismaramar/backupuseranggun/main/$NameUser/$NameUser.zip"
+link="https://raw.githubusercontent.com/arismaramar/backupvps/main/$NameUser/$NameUser.zip"
 sleep 1
 echo -e "$COLOR1│${NC}  [INFO] Backup done "
 sleep 1
