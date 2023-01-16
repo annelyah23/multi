@@ -5,7 +5,7 @@ biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
 echo -e " [INFO] Downloading Update File"
 sleep 2
 wget -q -O /usr/bin/menu "https://raw.githubusercontent.com/arismaramar/multi/main/menu/menu.sh" && chmod +x /usr/bin/menu
-wget -q -O /usr/bin/menu-ss "https://raw.githubusercontent.com/arismaramar/multi/main/menu/mnu-ss.sh" && chmod +x /usr/bin/menu-ss
+wget -q -O /usr/bin/menu-ss "https://raw.githubusercontent.com/arismaramar/multi/main/menu/menu-ss.sh" && chmod +x /usr/bin/menu-ss
 wget -q -O /usr/bin/menu-vmess "https://raw.githubusercontent.com/arismaramar/multi/main/menu/menu-vmess.sh" && chmod +x /usr/bin/menu-vmess
 wget -q -O /usr/bin/menu-vless "https://raw.githubusercontent.com/arismaramar/multi/main/menu/menu-vless.sh" && chmod +x /usr/bin/menu-vless
 wget -q -O /usr/bin/menu-trojan "https://raw.githubusercontent.com/arismaramar/multi/main/menu/menu-trojan.sh" && chmod +x /usr/bin/menu-trojan
