@@ -26,13 +26,10 @@ wget -q -O /usr/bin/info "https://raw.githubusercontent.com/arismaramar/multi/ma
 wget -q -O /usr/bin/mspeed "https://raw.githubusercontent.com/arismaramar/multi/main/menu/menu-speedtest.sh" && chmod +x /usr/bin/mspeed
 wget -q -O /usr/bin/mbandwith "https://raw.githubusercontent.com/arismaramar/multi/main/menu/menu-bandwith.sh" && chmod +x /usr/bin/mbandwith
 wget -q -O /usr/bin/restart "https://raw.githubusercontent.com/arismaramar/multi/main/menu/restart.sh" && chmod +x /usr/bin/restart
-wget -q -O /usr/bin/update "https://raw.githubusercontent.com/arismaramar/multi/main/menu/update.sh" && chmod +x /usr/bin/update
 wget -q -O /usr/bin/backup "https://raw.githubusercontent.com/arismaramar/multi/main/backup/backup.sh"  && chmod +x /usr/bin/backup
 wget -q -O /usr/bin/restore "https://raw.githubusercontent.com/arismaramar/multi/main/backup/restore.sh"  && chmod +x /usr/bin/restore
 wget -q -O /usr/bin/limit-speed "https://raw.githubusercontent.com/arismaramar/multi/main/backup/limit-speed.sh"  && chmod +x /usr/bin/limit-speed
-
-
-
+wget -q -O /usr/bin/update "https://raw.githubusercontent.com/arismaramar/multi/main/menu/update.sh" && chmod +x /usr/bin/update
 echo -e " [INFO] Update Successfully"
 sleep 2
 exit
