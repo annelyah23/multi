@@ -182,7 +182,7 @@ cat > /etc/xray/config.json << END
        "streamSettings":{
          "network": "ws",
             "wsSettings": {
-                "path": "/vlessws"
+                "path": "/anggun-vless"
           }
         }
      },
@@ -202,7 +202,7 @@ cat > /etc/xray/config.json << END
        "streamSettings":{
          "network": "ws",
             "wsSettings": {
-                "path": "/worryfree"
+                "path": "/angggun-vmess"
           }
         }
      },
@@ -223,7 +223,7 @@ cat > /etc/xray/config.json << END
        "streamSettings":{
            "network": "ws",
            "wsSettings": {
-               "path": "/yudhynet"
+               "path": "/anggun-tr"
             }
          }
      },
@@ -244,7 +244,7 @@ cat > /etc/xray/config.json << END
        "streamSettings":{
           "network": "ws",
              "wsSettings": {
-               "path": "/ss-ws"
+               "path": "/anggun-ss"
            }
         }
      },
