@@ -587,7 +587,7 @@ END
 
 cat > /etc/systemd/system/runn.service <<EOF
 [Unit]
-Description=Mantap-Sayang
+Description=ANGGUN-MULTI
 After=network.target
 
 [Service]
