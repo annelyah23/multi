@@ -148,283 +148,446 @@ mkdir -p /home/vps/public_html
 
 # set uuid
 uuid=$(cat /proc/sys/kernel/random/uuid)
-# xray config
-cat > /etc/xray/config.json << END
+
+# trojan config
+cat > /etc/xray/trojan.json << END
 {
-  "log" : {
-    "access": "/var/log/xray/access.log",
-    "error": "/var/log/xray/error.log",
-    "loglevel": "warning"
-  },
-  "inbounds": [
-      {
-      "listen": "127.0.0.1",
-      "port": 10000,
-      "protocol": "dokodemo-door",
-      "settings": {
-        "address": "127.0.0.1"
-      },
-      "tag": "api"
+    "log" : {
+      "access": "/var/log/xray/access-trojan.log",
+      "error": "/var/log/xray/error-trojan.log",
+      "loglevel": "warning"
     },
-   {
-     "listen": "127.0.0.1",
-     "port": "10001",
-     "protocol": "vless",
-      "settings": {
-          "decryption":"none",
-            "clients": [
-               {
-                 "id": "${uuid}"
-#vless
-             }
-          ]
-       },
-       "streamSettings":{
-         "network": "ws",
-            "wsSettings": {
-                "path": "/vlessws"
-          }
-        }
-     },
-     {
-     "listen": "127.0.0.1",
-     "port": "10002",
-     "protocol": "vmess",
-      "settings": {
-            "clients": [
-               {
-                 "id": "${uuid}",
-                 "alterId": 0
-#vmess
-             }
-          ]
-       },
-       "streamSettings":{
-         "network": "ws",
-            "wsSettings": {
-                "path": "/worryfree"
-          }
-        }
-     },
-    {
-      "listen": "127.0.0.1",
-      "port": "10003",
-      "protocol": "trojan",
-      "settings": {
-          "decryption":"none",
-           "clients": [
-              {
-                 "password": "${uuid}"
-#trojanws
-              }
-          ],
-         "udp": true
-       },
-       "streamSettings":{
-           "network": "ws",
-           "wsSettings": {
-               "path": "/anggun"
-            }
-         }
-     },
-    {
-         "listen": "127.0.0.1",
-        "port": "10004",
-        "protocol": "shadowsocks",
+    "inbounds": [
+        {
+        "listen": "127.0.0.1",
+        "port": 10085,
+        "protocol": "dokodemo-door",
         "settings": {
-           "clients": [
-           {
-           "method": "aes-128-gcm",
-          "password": "${uuid}"
-#ssws
-           }
-          ],
-          "network": "tcp,udp"
-       },
-       "streamSettings":{
-          "network": "ws",
-             "wsSettings": {
-               "path": "/ss-ws"
-           }
-        }
-     },
+          "address": "127.0.0.1"
+        },
+        "tag": "api"
+      },
       {
-        "listen": "127.0.0.1",
-        "port": "10005",
-        "protocol": "vless",
-        "settings": {
-         "decryption":"none",
-           "clients": [
-             {
-               "id": "${uuid}"
-#vlessgrpc
-             }
-          ]
-       },
-          "streamSettings":{
-             "network": "grpc",
-             "grpcSettings": {
-                "serviceName": "vless-grpc"
-           }
-        }
-     },
-     {
-      "listen": "127.0.0.1",
-      "port": "10006",
-     "protocol": "vmess",
-      "settings": {
-            "clients": [
-               {
-                 "id": "${uuid}",
-                 "alterId": 0
-#vmessgrpc
-             }
-          ]
-       },
-       "streamSettings":{
-         "network": "grpc",
-            "grpcSettings": {
-                "serviceName": "vmess-grpc"
-          }
-        }
-     },
-     {
-        "listen": "127.0.0.1",
-        "port": "10007",
+        "listen": "/run/xray/trojan_ws.sock",
         "protocol": "trojan",
         "settings": {
-          "decryption":"none",
+            "decryption":"none",		
              "clients": [
-               {
-                 "password": "${uuid}"
-#trojangrpc
-               }
-           ]
-        },
+                {
+                   "password": "${uuid}"
+#trojanws
+                }
+            ],
+           "udp": true
+         },
          "streamSettings":{
-         "network": "grpc",
-           "grpcSettings": {
-               "serviceName": "trojan-grpc"
-         }
-      }
-   },
-   {
-    "listen": "127.0.0.1",
-    "port": "10008",
-    "protocol": "shadowsocks",
-    "settings": {
-        "clients": [
-          {
-             "method": "aes-128-gcm",
-             "password": "${uuid}"
-#ssgrpc
+             "network": "ws",
+             "wsSettings": {
+                 "path": "/trojan-ws"
+              }
            }
-         ],
-           "network": "tcp,udp"
-      },
-    "streamSettings":{
-     "network": "grpc",
-        "grpcSettings": {
-           "serviceName": "ss-grpc"
-          }
-       }
-    }
-  ],
-  "outbounds": [
-    {
-      "protocol": "freedom",
-      "settings": {}
-    },
-    {
-      "protocol": "blackhole",
-      "settings": {},
-      "tag": "blocked"
-    }
-  ],
-  "routing": {
-    "rules": [
-      {
-        "type": "field",
-        "ip": [
-          "0.0.0.0/8",
-          "10.0.0.0/8",
-          "100.64.0.0/10",
-          "169.254.0.0/16",
-          "172.16.0.0/12",
-          "192.0.0.0/24",
-          "192.0.2.0/24",
-          "192.168.0.0/16",
-          "198.18.0.0/15",
-          "198.51.100.0/24",
-          "203.0.113.0/24",
-          "::1/128",
-          "fc00::/7",
-          "fe80::/10"
-        ],
-        "outboundTag": "blocked"
-      },
-      {
-        "inboundTag": [
-          "api"
-        ],
-        "outboundTag": "api",
-        "type": "field"
-      },
-      {
-        "type": "field",
-        "outboundTag": "blocked",
-        "protocol": [
-          "bittorrent"
-        ]
-      }
-    ]
-  },
-  "stats": {},
-  "api": {
-    "services": [
-      "StatsService"
+       },
+       {
+          "listen": "/run/xray/trojan_grpc.sock",
+          "protocol": "trojan",
+          "settings": {
+            "decryption":"none",
+               "clients": [
+                 {
+                   "password": "${uuid}"
+#trojangrpc
+                 }
+             ]
+          },
+           "streamSettings":{
+           "network": "grpc",
+             "grpcSettings": {
+                 "serviceName": "trojan-grpc"
+           }
+        }
+     }
     ],
-    "tag": "api"
-  },
-  "policy": {
-    "levels": {
-      "0": {
-        "statsUserDownlink": true,
-        "statsUserUplink": true
+    "outbounds": [
+      {
+        "protocol": "freedom",
+        "settings": {}
+      },
+      {
+        "protocol": "blackhole",
+        "settings": {},
+        "tag": "blocked"
       }
+    ],
+    "routing": {
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "0.0.0.0/8",
+            "10.0.0.0/8",
+            "100.64.0.0/10",
+            "169.254.0.0/16",
+            "172.16.0.0/12",
+            "192.0.0.0/24",
+            "192.0.2.0/24",
+            "192.168.0.0/16",
+            "198.18.0.0/15",
+            "198.51.100.0/24",
+            "203.0.113.0/24",
+            "::1/128",
+            "fc00::/7",
+            "fe80::/10"
+          ],
+          "outboundTag": "blocked"
+        },
+        {
+          "inboundTag": [
+            "api"
+          ],
+          "outboundTag": "api",
+          "type": "field"
+        }
+      ]
     },
-    "system": {
-      "statsInboundUplink": true,
-      "statsInboundDownlink": true,
-      "statsOutboundUplink" : true,
-      "statsOutboundDownlink" : true
+    "stats": {},
+    "api": {
+      "services": [
+        "StatsService"
+      ],
+      "tag": "api"
+    },
+    "policy": {
+      "levels": {
+        "0": {
+          "statsUserDownlink": true,
+          "statsUserUplink": true
+        }
+      },
+      "system": {
+        "statsInboundUplink": true,
+        "statsInboundDownlink": true,
+        "statsOutboundUplink" : true,
+        "statsOutboundDownlink" : true
+      }
     }
   }
-}
 END
+
+# vmess config
+cat > /etc/xray/vmess.json << END
+{
+    "log" : {
+      "access": "/var/log/xray/access-vmess.log",
+      "error": "/var/log/xray/error-vmess.log",
+      "loglevel": "warning"
+    },
+    "inbounds": [
+        {
+        "listen": "127.0.0.1",
+        "port": 10085,
+        "protocol": "dokodemo-door",
+        "settings": {
+          "address": "127.0.0.1"
+        },
+        "tag": "api"
+      },
+       {
+       "listen": "/run/xray/vmess_ws.sock",
+       "protocol": "vmess",
+        "settings": {
+              "clients": [
+                 {
+                   "id": "${uuid}",
+                   "alterId": 0
+#vmess
+               }
+            ]
+         },
+         "streamSettings":{
+           "network": "ws",
+              "wsSettings": {
+                  "path": "/vmess"
+            }
+          }
+       },
+       {
+       "listen": "/run/xray/vmess_grpc.sock",
+       "protocol": "vmess",
+        "settings": {
+              "clients": [
+                 {
+                   "id": ""${uuid}",
+                   "alterId": 0
+#vmessgrpc
+               }
+            ]
+         },
+         "streamSettings":{
+           "network": "grpc",
+              "grpcSettings": {
+                  "serviceName": "vmess-grpc"
+            }
+          }
+       }
+    ],
+    "outbounds": [
+      {
+        "protocol": "freedom",
+        "settings": {}
+      },
+      {
+        "protocol": "blackhole",
+        "settings": {},
+        "tag": "blocked"
+      }
+    ],
+    "routing": {
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "0.0.0.0/8",
+            "10.0.0.0/8",
+            "100.64.0.0/10",
+            "169.254.0.0/16",
+            "172.16.0.0/12",
+            "192.0.0.0/24",
+            "192.0.2.0/24",
+            "192.168.0.0/16",
+            "198.18.0.0/15",
+            "198.51.100.0/24",
+            "203.0.113.0/24",
+            "::1/128",
+            "fc00::/7",
+            "fe80::/10"
+          ],
+          "outboundTag": "blocked"
+        },
+        {
+          "inboundTag": [
+            "api"
+          ],
+          "outboundTag": "api",
+          "type": "field"
+        }
+      ]
+    },
+    "stats": {},
+    "api": {
+      "services": [
+        "StatsService"
+      ],
+      "tag": "api"
+    },
+    "policy": {
+      "levels": {
+        "0": {
+          "statsUserDownlink": true,
+          "statsUserUplink": true
+        }
+      },
+      "system": {
+        "statsInboundUplink": true,
+        "statsInboundDownlink": true,
+        "statsOutboundUplink" : true,
+        "statsOutboundDownlink" : true
+      }
+    }
+  }
+END
+
+# vless config
+cat > /etc/xray/vless.json << END
+{
+    "log" : {
+      "access": "/var/log/xray/access-vless.log",
+      "error": "/var/log/xray/error-vless.log",
+      "loglevel": "warning"
+    },
+    "inbounds": [
+        {
+        "listen": "127.0.0.1",
+        "port": 10085,
+        "protocol": "dokodemo-door",
+        "settings": {
+          "address": "127.0.0.1"
+        },
+        "tag": "api"
+      },
+     {
+       "listen": "/run/xray/vless_ws.sock",
+       "protocol": "vless",
+        "settings": {
+            "decryption":"none",
+              "clients": [
+                 {
+                   "id": "$uuid"                 
+#vless
+               }
+            ]
+         },
+         "streamSettings":{
+           "network": "ws",
+              "wsSettings": {
+                  "path": "/vless"
+            }
+          }
+       },
+      {
+       "listen": "/run/xray/vless_grpc.sock",
+       "protocol": "vless",
+        "settings": {
+            "decryption":"none",
+              "clients": [
+                 {
+                   "id": "$uuid" 
+#vlessgrpc
+               }
+            ]
+         },
+            "streamSettings":{
+               "network": "grpc",
+               "grpcSettings": {
+                  "serviceName": "vless-grpc"
+             }
+          }
+       }
+    ],
+    "outbounds": [
+      {
+        "protocol": "freedom",
+        "settings": {}
+      },
+      {
+        "protocol": "blackhole",
+        "settings": {},
+        "tag": "blocked"
+      }
+    ],
+    "routing": {
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "0.0.0.0/8",
+            "10.0.0.0/8",
+            "100.64.0.0/10",
+            "169.254.0.0/16",
+            "172.16.0.0/12",
+            "192.0.0.0/24",
+            "192.0.2.0/24",
+            "192.168.0.0/16",
+            "198.18.0.0/15",
+            "198.51.100.0/24",
+            "203.0.113.0/24",
+            "::1/128",
+            "fc00::/7",
+            "fe80::/10"
+          ],
+          "outboundTag": "blocked"
+        },
+        {
+          "inboundTag": [
+            "api"
+          ],
+          "outboundTag": "api",
+          "type": "field"
+        }
+      ]
+    },
+    "stats": {},
+    "api": {
+      "services": [
+        "StatsService"
+      ],
+      "tag": "api"
+    },
+    "policy": {
+      "levels": {
+        "0": {
+          "statsUserDownlink": true,
+          "statsUserUplink": true
+        }
+      },
+      "system": {
+        "statsInboundUplink": true,
+        "statsInboundDownlink": true,
+        "statsOutboundUplink" : true,
+        "statsOutboundDownlink" : true
+      }
+    }
+  }
+END
+
 rm -rf /etc/systemd/system/xray.service.d
-cat <<EOF> /etc/systemd/system/xray.service
+rm -rf /etc/systemd/system/xray@.service
+
+cat > /etc/systemd/system/trojan.service <<-END
+[Unit]
 Description=Xray Service
 Documentation=https://github.com/xtls
 After=network.target nss-lookup.target
 
 [Service]
 User=www-data
-CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE                                 AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
+CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
+AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 NoNewPrivileges=true
-ExecStart=/usr/local/bin/xray run -config /etc/xray/config.json
+ExecStart=/usr/local/bin/xray run -config /etc/xray/trojan.json
 Restart=on-failure
 RestartPreventExitStatus=23
-LimitNPROC=10000
-LimitNOFILE=1000000
+LimitNPROC=100000000
+LimitNOFILE=100000000
 
 [Install]
 WantedBy=multi-user.target
+END
 
-EOF
+cat > /etc/systemd/system/vmess.service <<-END
+[Unit]
+Description=Xray Service
+Documentation=https://github.com/xtls
+After=network.target nss-lookup.target
+
+[Service]
+User=www-data
+CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
+AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
+NoNewPrivileges=true
+ExecStart=/usr/local/bin/xray run -config /etc/xray/vmess.json
+Restart=on-failure
+RestartPreventExitStatus=23
+LimitNPROC=100000000
+LimitNOFILE=100000000
+
+[Install]
+WantedBy=multi-user.target
+END
+
+cat > /etc/systemd/system/vless.service <<-END
+[Unit]
+Description=Xray Service
+Documentation=https://github.com/xtls
+After=network.target nss-lookup.target
+
+[Service]
+User=www-data
+CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
+AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
+NoNewPrivileges=true
+ExecStart=/usr/local/bin/xray run -config /etc/xray/vless.json
+Restart=on-failure
+RestartPreventExitStatus=23
+LimitNPROC=100000000
+LimitNOFILE=100000000
+
+[Install]
+WantedBy=multi-user.target
+END
+
 cat > /etc/systemd/system/runn.service <<EOF
 [Unit]
-Description=ANGGUN-MULTI
+Description=Mantap-Sayang
 After=network.target
 
 [Service]
