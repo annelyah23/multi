@@ -72,7 +72,7 @@ fi
 function cekvless(){
 clear
 echo -n > /tmp/other.txt
-data=( `cat /etc/xray/config.json | grep '#&' | cut -d ' ' -f 2 | sort | uniq`);
+data=( `cat /etc/xray/vless.json | grep '#&' | cut -d ' ' -f 2 | sort | uniq`);
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 echo -e "$COLOR1 ${NC} ${COLBG1}             ${WH}• RENEW VLESS USER •              ${NC} $COLOR1 $NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
@@ -85,11 +85,11 @@ akun="tidakada"
 fi
 
 echo -n > /tmp/ipvless.txt
-data2=( `cat /var/log/xray/access.log | tail -n 500 | cut -d " " -f 3 | sed 's/tcp://g' | cut -d ":" -f 1 | sort | uniq`);
+data2=( `cat /var/log/xray/access-vless.log | tail -n 500 | cut -d " " -f 3 | sed 's/tcp://g' | cut -d ":" -f 1 | sort | uniq`);
 for ip in "${data2[@]}"
 do
 
-jum=$(cat /var/log/xray/access.log | grep -w "$akun" | tail -n 500 | cut -d " " -f 3 | sed 's/tcp://g' | cut -d ":" -f 1 | grep -w "$ip" | sort | uniq)
+jum=$(cat /var/log/xray/access-vless.log | grep -w "$akun" | tail -n 500 | cut -d " " -f 3 | sed 's/tcp://g' | cut -d ":" -f 1 | grep -w "$ip" | sort | uniq)
 if [[ "$jum" = "$ip" ]]; then
 echo "$jum" >> /tmp/ipvless.txt
 else
@@ -126,7 +126,7 @@ echo -e "$COLOR1┌────────────────────�
 echo -e "$COLOR1 ${NC} ${COLBG1}             ${WH}• RENEW VLESS USER •              ${NC} $COLOR1 $NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-NUMBER_OF_CLIENTS=$(grep -c -E "^#& " "/etc/xray/config.json")
+NUMBER_OF_CLIENTS=$(grep -c -E "^#& " "/etc/xray/vless.json")
 if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
 echo -e "$COLOR1 ${NC}  • You have no existing clients!"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
@@ -142,7 +142,7 @@ echo -e "$COLOR1┌────────────────────�
 echo -e "$COLOR1 ${NC} ${COLBG1}             ${WH}• RENEW VLESS USER •              ${NC} $COLOR1 $NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-grep -E "^#& " "/etc/xray/config.json" | cut -d ' ' -f 2-3 | column -t | sort | uniq | nl
+grep -E "^#& " "/etc/xray/vless.json" | cut -d ' ' -f 2-3 | column -t | sort | uniq | nl
 echo -e "$COLOR1 ${NC}"
 echo -e "$COLOR1 ${NC}  ${COLOR1}• ${WH}[${COLOR1}NOTE${WH}] Press any key to back on menu"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
@@ -158,14 +158,14 @@ read -p "   Expired (days): " masaaktif
 if [ -z $masaaktif ]; then
 masaaktif="1"
 fi
-exp=$(grep -E "^#& $user" "/etc/xray/config.json" | cut -d ' ' -f 3 | sort | uniq)
+exp=$(grep -E "^#& $user" "/etc/xray/vless.json" | cut -d ' ' -f 3 | sort | uniq)
 now=$(date +%Y-%m-%d)
 d1=$(date -d "$exp" +%s)
 d2=$(date -d "$now" +%s)
 exp2=$(( (d1 - d2) / 86400 ))
 exp3=$(($exp2 + $masaaktif))
 exp4=`date -d "$exp3 days" +"%Y-%m-%d"`
-sed -i "/#& $user/c\#& $user $exp4" /etc/xray/config.json
+sed -i "/#& $user/c\#& $user $exp4" /etc/xray/vless.json
 systemctl restart xray > /dev/null 2>&1
 clear
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
@@ -189,7 +189,7 @@ fi
 
 function delvless(){
     clear
-NUMBER_OF_CLIENTS=$(grep -c -E "^#& " "/etc/xray/config.json")
+NUMBER_OF_CLIENTS=$(grep -c -E "^#& " "/etc/xray/vless.json")
 if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 echo -e "$COLOR1 ${NC} ${COLBG1}            ${WH}• DELETE VLESS USER •              ${NC} $COLOR1 $NC"
@@ -209,7 +209,7 @@ echo -e "$COLOR1┌────────────────────�
 echo -e "$COLOR1 ${NC} ${COLBG1}            ${WH}• DELETE VLESS USER •              ${NC} $COLOR1 $NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-grep -E "^#& " "/etc/xray/config.json" | cut -d ' ' -f 2-3 | column -t | sort | uniq | nl
+grep -E "^#& " "/etc/xray/vless.json" | cut -d ' ' -f 2-3 | column -t | sort | uniq | nl
 echo -e "$COLOR1 ${NC}"
 echo -e "$COLOR1 ${NC}  ${COLOR1}• ${WH}[${COLOR1}NOTE${WH}] Press any key to back on menu"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
@@ -218,8 +218,8 @@ read -rp "   Input Username : " user
 if [ -z $user ]; then
 menu-vless
 else
-exp=$(grep -wE "^#& $user" "/etc/xray/config.json" | cut -d ' ' -f 3 | sort | uniq)
-sed -i "/^#& $user $exp/,/^},{/d" /etc/xray/config.json
+exp=$(grep -wE "^#& $user" "/etc/xray/vless.json" | cut -d ' ' -f 3 | sort | uniq)
+sed -i "/^#& $user $exp/,/^},{/d" /etc/xray/vless.json
 systemctl restart xray > /dev/null 2>&1
 clear
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
@@ -260,7 +260,7 @@ echo ""
 read -n 1 -s -r -p "   Press any key to back on menu"
 menu
 fi
-		CLIENT_EXISTS=$(grep -w $user /etc/xray/config.json | wc -l)
+		CLIENT_EXISTS=$(grep -w $user /etc/xray/vless.json | wc -l)
 
 if [[ ${CLIENT_EXISTS} == '1' ]]; then
 echo -e "$COLOR1 ${NC} Please choose another name."
@@ -281,9 +281,9 @@ read -p " Silakan atur kata sandi  (dibuat secara acak jika Anda tidak Mengisi P
 read -p "  Expired (days): " masaaktif
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#vless$/a\#& '"$user $exp"'\
-},{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
+},{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/vless.json
 sed -i '/#vlessgrpc$/a\#& '"$user $exp"'\
-},{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
+},{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/vless.json
 vlesslink1="vless://${uuid}@${domain}:$tls?path=/vlessws&security=tls&encryption=none&type=ws#${user}"
 vlesslink2="vless://${uuid}@${domain}:$none?path=/vlessws&encryption=none&type=ws#${user}"
 vlesslink3="vless://${uuid}@${domain}:$tls?mode=gun&security=tls&encryption=none&type=grpc&serviceName=vless-grpc&sni=bug.com#${user}"
