@@ -154,7 +154,7 @@ read -rp "   Input Username : " user
 if [ -z $user ]; then
 menu-trojan
 else
-exp=$(grep -wE "^#! $user" "/etc/xray/config.json" | cut -d ' ' -f 3 | sort | uniq)
+exp=$(grep -wE "^#! $user" "/etc/xray/trojan.json" | cut -d ' ' -f 3 | sort | uniq)
 sed -i "/^#! $user $exp/,/^},{/d" /etc/xray/trojan.json
 systemctl restart xray > /dev/null 2>&1
 clear
