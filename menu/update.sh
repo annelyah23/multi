@@ -29,6 +29,7 @@ wget -q -O /usr/bin/restart "https://raw.githubusercontent.com/arismaramar/multi
 wget -q -O /usr/bin/backup "https://raw.githubusercontent.com/arismaramar/multi/main/backup/backup.sh"  && chmod +x /usr/bin/backup
 wget -q -O /usr/bin/restore "https://raw.githubusercontent.com/arismaramar/multi/main/backup/restore.sh"  && chmod +x /usr/bin/restore
 wget -q -O /usr/bin/limit-speed "https://raw.githubusercontent.com/arismaramar/multi/main/backup/limit-speed.sh"  && chmod +x /usr/bin/limit-speed
+wget -q -O /usr/bin/crtxray "https://raw.githubusercontent.com/arismaramar/multi/main/xray/crt.sh"  && chmod +x /usr/bin/crtxray
 wget -q -O /usr/bin/update "https://raw.githubusercontent.com/arismaramar/multi/main/menu/update.sh" && chmod +x /usr/bin/update
 echo -e " [INFO] Update Successfully"
 sleep 2
