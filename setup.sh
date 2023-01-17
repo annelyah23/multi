@@ -193,7 +193,7 @@ TEXT : \033[1;36m
 EOF
 #THEME CONFIG
 cat <<EOF>> /etc/anggun/theme/color.conf
-blue
+touch /etc/anggun/theme/color.conf
 EOF
     
 #install ssh ovpn
