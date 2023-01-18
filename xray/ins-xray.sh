@@ -106,14 +106,20 @@ echo -e "[ ${green}INFO$NC ] Downloading & Installing xray core"
 domainSock_dir="/run/xray";! [ -d $domainSock_dir ] && mkdir  $domainSock_dir
 chown www-data.www-data $domainSock_dir
 # Make Folder XRay
-mkdir -p /var/log/xray
 mkdir -p /etc/xray
-chown www-data.www-data /var/log/xray
+mkdir -p /var/log/xray
 chmod +x /var/log/xray
 touch /var/log/xray/access.log
 touch /var/log/xray/error.log
+touch /var/log/xray/access-trojan.log
+touch /var/log/xray/error-trojan.log
+touch /var/log/xray/access-vmess.log
+touch /var/log/xray/error-vmess.log
+touch /var/log/xray/access-vless.log
+touch /var/log/xray/error-vless.log
 touch /var/log/xray/access2.log
 touch /var/log/xray/error2.log
+chown www-data.www-data /var/log/xray
 # / / Ambil Xray Core Version Terbaru
 
 # Ambil Xray Core Version Terbaru
@@ -607,8 +613,8 @@ cat >/etc/nginx/conf.d/xray.conf <<EOF
         server {
              listen 80;
              listen [::]:80;
-             listen 81;
-             listen [::]:81;
+             listen 8080;
+             listen [::]:8080;
              listen 443 ssl http2 reuseport;
              listen [::]:443 http2 reuseport;
              server_name $domain;
@@ -710,6 +716,7 @@ grpc_pass grpc://unix:/run/xray/vmess_grpc.sock;
 }
         }
 EOF
+
 sleep 1
 echo -e "[ ${green}INFO$NC ] Installing bbr.."
 wget -q -O /usr/bin/bbr "https://raw.githubusercontent.com/arismaramar/multi/main/ssh/bbr.sh"
